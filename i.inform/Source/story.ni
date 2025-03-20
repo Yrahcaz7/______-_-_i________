@@ -287,8 +287,7 @@ Instead of attacking, touching, pushing, squeezing, or rubbing a button:
 Check throwing something at (this is the throw things at buttons rule):
 	if the second noun is a button and the second noun is not pressed:
 		if the noun is not held:
-			say "(first taking [the noun])[command clarification break]";
-			silently try taking the noun;
+			carry out the implicitly taking activity with the noun;
 			if the noun is not held:
 				stop the action;
 		silently try pressing the second noun;
@@ -353,8 +352,7 @@ Understand "pour [something preferably held] on/onto/into/inside [something]", "
 
 Check pouring something on (this is the can't pour what's not held rule):
 	if the noun is not held:
-		say "(first taking [the noun])[command clarification break]";
-		silently try taking the noun;
+		carry out the implicitly taking activity with the noun;
 		if the noun is not held:
 			stop the action;
 
@@ -390,12 +388,16 @@ The block drinking rule is not listed in the check drinking rulebook.
 
 Check drinking (this is the drinking from fluid receptacles rule):
 	if the noun is a fluid receptacle:
+		if the noun is not held:
+			carry out the implicitly taking activity with the noun;
+			if the noun is not held:
+				stop the action;
 		if the content of the noun is air:
-			say "[The noun] is clearly empty." instead;
+			say "The [the printed name of the noun] is clearly empty." instead;
 		else if the content of the noun is putrid:
-			say "The [the name of the content of the noun] in [the noun] is obviously not potable." instead;
+			say "The [the name of the content of the noun] in the [the printed name of the noun] is obviously not potable." instead;
 		else:
-			say "You drink all of the [the name of the content of the noun] in [the noun].";
+			say "You drink all of the [the name of the content of the noun] in the [the printed name of the noun].";
 			now the content of the noun is air instead;
 
 Check drinking (this is the can't drink what's not liquid rule):
@@ -405,7 +407,7 @@ Check drinking (this is the can't drink what's not liquid rule):
 Check drinking (this is the can't drink what's big rule):
 	if the noun is big:
 		if the noun is edible:
-			say "There's too much of that to drink all of it, but you can manage a few handfulls. It tastes fine, not particularly good or bad." instead;
+			say "There's too much of that to drink all of it, but you can manage a few handfuls. It tastes fine, not particularly good or bad." instead;
 		else:
 			say "There's way too much of that to drink all of it! Not that it would taste good anyway." instead;
 
@@ -415,8 +417,7 @@ Check drinking (this is the can't drink what's not edible rule):
 
 Carry out drinking (this is the standard carry out drinking rule):
 	if the noun is not held and the noun is not heavy and the noun is not part of something and the noun is not scenery and the noun is not fixed in place:
-		say "(first taking [the noun])[command clarification break]";
-		silently try taking the noun;
+		carry out the implicitly taking activity with the noun;
 		if the noun is not held:
 			stop the action;
 	now the noun is off-stage;
@@ -426,6 +427,8 @@ Report drinking (this is the standard report drinking rule):
 
 Check eating (this is the convert eating to drinking where possible rule):
 	if the noun is liquid:
+		try drinking the noun instead;
+	else if the noun is a fluid receptacle and the content of the noun is not air:
 		try drinking the noun instead;
 
 The convert eating to drinking where possible rule is listed first in the check eating rulebook.
@@ -641,8 +644,10 @@ Understand "u-l/ul button/--" and "upper/u left/l button/--" as the upper-left b
 
 After pressing the upper-left button:
 	if the player is wearing the handcuffs:
-		silently try pressing the lower-left button;
 		if the lower-left button is pressed:
+			say "As you press the upper-left button with your left hand, the loose handcuff smacks into the lower-left button, but it's already pressed.";
+		else:
+			silently try pressing the lower-left button;
 			say "As you press the upper-left button with your left hand, the loose handcuff smacks into the lower-left button and presses it as well.";
 	else:
 		continue the action;
@@ -708,8 +713,7 @@ The crushed bottle is a small fluid receptacle in the rucksack. The description 
 To attach the shaker cap to the crushed bottle:
 	if the shaker cap is not part of the bottle:
 		if the shaker cap is not held:
-			say "(first taking [the shaker cap])[command clarification break]";
-			silently try taking the shaker cap;
+			carry out the implicitly taking activity with the shaker cap;
 			if the shaker cap is not held:
 				stop the action;
 		now the shaker cap is part of the bottle;
@@ -730,20 +734,12 @@ Check taking the shaker cap:
 		say "You try to take [the shaker cap] off [the bottle], but it's stuck on very tight." instead;
 
 Check drinking the bottle:
-	if the content of the noun is air:
-		say "The [the printed name of the noun] is clearly empty." instead;
-	else if the shaker cap is part of the bottle:
-		say "You try to drink all of the [the name of the content of the noun] in the [the printed name of the noun], but only a tiny bit of [the name of water] dribbles into your mouth." instead;
-	else if the content of the noun is putrid:
-		say "The [the name of the content of the noun] in the [the printed name of the noun] is obviously not potable." instead;
-	else:
-		say "You drink all of the [the name of the content of the noun] in the [the printed name of the noun].";
-		now the content of the noun is air instead;
+	if the shaker cap is part of the bottle:
+		say "You try to drink all of the [the name of the content of the bottle] in the [the printed name of the bottle], but only a tiny bit of [the name of water] dribbles into your mouth." instead;
 
 To crush the bottle:
 	if the bottle is not held:
-		say "(first taking [the bottle])[command clarification break]";
-		silently try taking the bottle;
+		carry out the implicitly taking activity with the bottle;
 		if the bottle is not held:
 			stop the action;
 	if the shaker cap is part of the bottle:
@@ -766,10 +762,9 @@ Check squeezing the bottle:
 	crush the bottle instead;
 
 Check throwing the bottle at something:
-	if the noun is not held:
-		say "(first taking [the noun])[command clarification break]";
-		silently try taking the noun;
-		if the noun is not held:
+	if the bottle is not held:
+		carry out the implicitly taking activity with the bottle;
+		if the bottle is not held:
 			stop the action;
 	if the shaker cap is part of the bottle:
 		now the shaker cap is in the location;
@@ -785,6 +780,10 @@ Check throwing the bottle at something:
 	now the bottle is in the location instead;
 
 Check pouring the bottle on the inkwell:
+	if the bottle is not held:
+		carry out the implicitly taking activity with the bottle;
+		if the bottle is not held:
+			stop the action;
 	if the shaker cap is part of the bottle:
 		now the inkwell is wet;
 		say "You try to pour the [the name of the content of the bottle] in the [the printed name of the bottle] out, and a tiny bit of [the name of water] dribbles over the ink in [the inkwell]. The ink might be usable now." instead;
@@ -792,6 +791,10 @@ Check pouring the bottle on the inkwell:
 		say "That would probably be a bad idea. Maybe if you could dribble a little [the name of water]..." instead;
 
 To reveal the secret hole:
+	if the bottle is not held:
+		carry out the implicitly taking activity with the bottle;
+		if the bottle is not held:
+			stop the action;
 	if the the ominous hole is closed:
 		now the ominous hole is open;
 		say "You pour the [the name of the content of the bottle] in the [the printed name of the bottle] all over [the white fluff], and your ears are blasted by a horrid screeching. The fluff seems to be moves rapidly back and forth, trying to shake the [the name of the content of the bottle] off of it. As it does so, [the crate] slides along the floor, revealing [a ominous hole] beneath where the crate once was.";
@@ -808,6 +811,10 @@ Check pouring the bottle on the white fluff:
 		reveal the secret hole instead;
 
 Check pouring the bottle on something:
+	if the bottle is not held:
+		carry out the implicitly taking activity with the bottle;
+		if the bottle is not held:
+			stop the action;
 	if the shaker cap is part of the bottle:
 		say "You try to pour the [the name of the content of the bottle] in the [the printed name of the bottle] out, but only a tiny bit of [the name of water] dribbles over [the second noun]." instead;
 
@@ -859,31 +866,28 @@ To break the salt shaker:
 	move the shards to the location;
 
 Check waving the salt shaker:
-	if the noun is not held:
-		say "(first taking [the noun])[command clarification break]";
-		silently try taking the noun;
-		if the noun is not held:
+	if the salt shaker is not held:
+		carry out the implicitly taking activity with the salt shaker;
+		if the salt shaker is not held:
 			stop the action;
 	break the salt shaker;
-	say "You wave [the noun] around and it accidentally hits something and breaks apart. Glass shards litter the floor and [the cap] rolls to your feet." instead;
+	say "You wave [the salt shaker] around and it accidentally hits something and breaks apart. Glass shards litter the floor and [the cap] rolls to your feet." instead;
 
 Check swinging the salt shaker:
-	if the noun is not held:
-		say "(first taking [the noun])[command clarification break]";
-		silently try taking the noun;
-		if the noun is not held:
+	if the salt shaker is not held:
+		carry out the implicitly taking activity with the salt shaker;
+		if the salt shaker is not held:
 			stop the action;
 	break the salt shaker;
-	say "You swing [the noun] around and it accidentally hits something and breaks apart. Glass shards litter the floor and [the cap] rolls to your feet." instead;
+	say "You swing [the salt shaker] around and it accidentally hits something and breaks apart. Glass shards litter the floor and [the cap] rolls to your feet." instead;
 
 Check throwing the salt shaker at something:
-	if the noun is not held:
-		say "(first taking [the noun])[command clarification break]";
-		silently try taking the noun;
-		if the noun is not held:
+	if the salt shaker is not held:
+		carry out the implicitly taking activity with the salt shaker;
+		if the salt shaker is not held:
 			stop the action;
 	break the salt shaker;
-	say "You throw [the noun] at [the second noun] and it breaks apart. Glass shards litter the floor and [the cap] rolls to your feet." instead;
+	say "You throw [the salt shaker] at [the second noun] and it breaks apart. Glass shards litter the floor and [the cap] rolls to your feet." instead;
 
 The bite marks are scenery in the Kitchen. "Everything around you is riddled with bite marks. It looks like the rats have done quite a number on this room."
 
@@ -937,8 +941,7 @@ To catch the stream of liquid with the crushed bottle:
 
 Check putting the crushed bottle on the sink:
 	if the crushed bottle is not held:
-		say "(first taking [the crushed bottle])[command clarification break]";
-		silently try taking the crushed bottle;
+		carry out the implicitly taking activity with the crushed bottle;
 		if the crushed bottle is not held:
 			stop the action;
 	say "You put the [crushed bottle] on the [sink].";
@@ -948,8 +951,7 @@ Check putting the crushed bottle on the sink:
 
 Check inserting the stream into the crushed bottle:
 	if the crushed bottle is not held:
-		say "(first taking [the crushed bottle])[command clarification break]";
-		silently try taking the crushed bottle;
+		carry out the implicitly taking activity with the crushed bottle;
 		if the crushed bottle is not held:
 			stop the action;
 	catch the stream of liquid with the crushed bottle instead;
