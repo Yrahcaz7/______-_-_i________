@@ -424,6 +424,12 @@ Carry out drinking (this is the standard carry out drinking rule):
 Report drinking (this is the standard report drinking rule):
 	say "You drink [the noun]. Not bad.";
 
+Check eating (this is the convert eating to drinking where possible rule):
+	if the noun is liquid:
+		try drinking the noun instead;
+
+The convert eating to drinking where possible rule is listed first in the check eating rulebook.
+
 Section 14 - Understanding
 
 Understand "walk", "jog", "run", "travel", "walk [direction]", "jog [direction]", "run [direction]", and "travel [direction]" as going.
@@ -466,11 +472,11 @@ The Overgrown Prison Cell is a room. "It appears to have been abandoned long ago
 Check going outside when the player is in the Overgrown Cell:
 	try going east instead;
 
-The large pool of blood is in the Overgrown Cell. "You can see a large pool of blood in the middle of the floor." The pool of blood is an enterable closed unopenable transparent liquid container. The description of the pool of blood is "Unlike everything else in the room, the blood appears to be new, as it has not yet dried."
+The large pool of blood is an enterable closed unopenable transparent liquid container in the Overgrown Cell. "You can see a large pool of blood in the middle of the floor." The description of the pool of blood is "Unlike everything else in the room, the blood appears to be new, as it has not yet dried."
 
 Understand "puddle", "large puddle", "puddle of blood", and "large puddle of blood" as the pool of blood.
 
-Instead of taking, eating, drinking, or tasting the pool of blood:
+Instead of taking, tasting, or drinking the pool of blood:
 	if the player is in the pool of blood:
 		say "You feel a bit queasy and decide to close your eyes for a bit instead.";
 	else:
