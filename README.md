@@ -1,3 +1,3 @@
-# ██████'█ █i████████
+# ███'█ █i████
 
-A work of ██teract██e f██t██n.
+A work of █teract█e f█t█n.
