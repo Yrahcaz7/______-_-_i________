@@ -536,9 +536,14 @@ The mostly transparent shard is a small thing. "You can see a mostly transparent
 Check taking the orb:
 	if the location of the shard is nowhere:
 		move the shard to the location;
-		say "You can't take it as it's mounted to the wall. However, you do manage to break off a shard from the outer layer." instead;
+		say "You can't take [the orb] as it's mounted to the wall. However, you do manage to break off a shard from its outer layer." instead;
 	else:
-		say "You can't take it as it's mounted to the wall. There doesn't seem to be any more loose pieces of the outer layer, either." instead;
+		say "You can't take [the orb] as it's mounted to the wall. There doesn't seem to be any more loose pieces of its outer layer, either." instead;
+
+Check attacking the orb:
+	if the location of the shard is nowhere:
+		move the shard to the location;
+		say "As you attack [the orb], a shard breaks off from its outer layer and falls onto the floor." instead;
 
 The pile of rubble is a closed door. The pile is south of the Hall. The pile is not openable. The description of the pile is "It seems to be made out of the same sturdy material as the walls. This rubble was likely part of the ceiling before. There are both large and small pieces of rubble in the pile."
 
@@ -975,9 +980,6 @@ Rule for printing the locale description when the hole is closed:
 
 Check going down in the Storage Room when the hole is closed:
 	say "You can't go that way." instead;
-
-Check going up in the Basement:
-	say "You can't reach [the hole] in the ceiling from all the way down here." instead;
 
 Check going through the hole in the Basement:
 	say "You can't reach [the hole] in the ceiling from all the way down here." instead;
