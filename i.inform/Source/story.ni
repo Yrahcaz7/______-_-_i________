@@ -6,12 +6,17 @@ Chapter 1 - Setup
 
 Use American dialect and the serial comma. Use no deprecated features.
 
-Include Locksmith by Emily Short.
+Include Punctuation Removal by Emily Short. Include Locksmith by Emily Short.
 
 Does the player mean unlocking with a passkey (this is the likely to mean unlocking with a passkey rule):
 	it is likely;
 
-Section 1 - Removing Unnecessary Words
+Section 1 - Command Alteration
+
+After reading a command:
+	remove stray punctuation;
+	if the player's command includes "&":
+		replace the matched text with "and";
 
 The last command is a text that varies.
 
@@ -566,7 +571,7 @@ Section 3 - The Prison Lobby
 The Prison Lobby is north of the Hall of Prison Cells. "It is very spacious and it seems to lead to many different hallways and rooms in different directions. There are many glowing orbs attached to the ceiling in different spots, lighting up the lobby with a pleasant glow. The [front door] in the north appears to be [if front door is open]open[else]closed[end if]. There is also a [decaying door] in the east, a [secure door] in the southeast, and a hallway to the west." The Lobby is in the Old Prison.
 
 Report going to the Lobby for the first time:
-	say "You walk down the hallway into the lobby.";
+	say "As you walk down the hallway into the lobby, bright light from above strikes your face. Your eyes take a moment to adjust to the light.";
 
 Check going outside when the player is in the Lobby:
 	try going north instead;
