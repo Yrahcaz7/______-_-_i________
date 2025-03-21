@@ -11,7 +11,37 @@ Include Punctuation Removal by Emily Short. Include Locksmith by Emily Short.
 Does the player mean unlocking with a passkey (this is the likely to mean unlocking with a passkey rule):
 	it is likely;
 
-Section 1 - Command Alteration
+Section 1 - Viable Exits
+
+Definition: a direction (called thataway) is viable:
+	if the room thataway from the location is a room:
+		if the location is The Storage Room and the room thataway from the location is The Prison Basement and the ominous hole is closed:
+			no;
+		if the location is The Prison Basement and the room thataway from the location is The Storage Room:
+			no;
+		yes;
+	no;
+
+When play begins:
+	now left hand status line is "[location] ([if the number of viable directions is 0]no exits[else if the number of viable directions is 1]exit: [list of viable directions][else]exits: [list of viable directions][end if])";
+
+Check going (this is the new can’t go that way rule):
+	if the room gone to is nothing:
+		let count of exits be the number of viable directions;
+		if the count of exits is 0:
+			say "You appear to be trapped in here.";
+		else if the count of exits is 1:
+			say "You can't go that way. From here, the only way out is [list of viable directions].";
+		else:
+			say "You can't go that way. From here, the exits are [list of viable directions].";
+		stop the action;
+
+The new can’t go that way rule is listed instead of the can’t go that way rule in the check going rulebook.
+
+Section 2 - Command Alteration
+
+Before reading a command while the turn count is 1:
+	say "(This is your chance to say what the protagonist should do next. After the '>', try typing 'take inventory'.)[line break](You can type 'help' at any time to see a list of meaningful commands that are understood.)";
 
 After reading a command:
 	remove stray punctuation;
@@ -34,7 +64,7 @@ Rule for reading a command when the parser error flag is true:
 	now the parser error flag is false;
 	change the text of the player's command to the last command;
 
-Section 2 - New Properties
+Section 3 - New Properties
 
 A thing can be small or big. A thing is usually big. Keychains and passkeys are always small.
 
@@ -46,7 +76,7 @@ A thing can be grounded. A thing is usually grounded. Wearable things and small 
 
 A thing has some text called the take objection. The take objection is usually "".
 
-Section 3 - Horns
+Section 4 - Horns
 
 A horn is a kind of thing. A horn is always small and wearable.
 
@@ -57,7 +87,7 @@ A horn has some text called command. The command of a horn is usually "_____".
 Check examining a horn:
 	say "It is a crystalline [the color of the item described] horn with '[the command of the item described]' inscribed on it. The horn feels rather familiar..." instead.
 
-Section 4 - The Player
+Section 5 - The Player
 
 The player is neuter. The carrying capacity of the player is 4. The description of the player is "You appear to be [if player is wearing something]wearing [a list of things worn by player][else]not wearing anything[end if]. [if we have examined player]You can't remember who you are. You feel more blood trickle down your face.[else]You pause and think for a good while, trying to remember who you are. While thinking, you feel drops of blood trickle down your face. You soon realize this is a waste of time, as you can't remember anything at all. Maybe if you had a mirror...[end if]"
 
@@ -69,7 +99,7 @@ Check eating (this is the can't eat yourself rule):
 
 The can't eat yourself rule is listed before the can't eat unless edible rule in the check eating rulebook.
 
-Section 5 - New Out-of-World Actions
+Section 6 - New Out-of-World Actions
 
 Requesting help is an action out of world.
 
@@ -85,7 +115,7 @@ Understand "rooms", "room progress/tally", and "exploration progress" as request
 Carry out requesting the room tally (this is the annouce the room tally rule):
 	say "You have been to [number of visited rooms] out of [number of rooms] room[s]."
 
-Section 6 - Useless Actions
+Section 7 - Useless Actions
 
 Screaming is an action applying to one thing.
 
@@ -118,7 +148,7 @@ Check knocking (this is the can't knock yourself rule):
 Report knocking (this is the standard report knocking rule):
 	say "You knock on [the noun] and wait a little, but nothing happens.";
 
-Section 7 - Walking up to
+Section 8 - Walking up to
 
 Walking up to is an action applying to one thing.
 
@@ -178,7 +208,7 @@ Report walking away from (this is the standard report walking away from rule):
 	else:
 		say "You walk away from [the noun].";
 
-Section 8 - Horn Powers
+Section 9 - Horn Powers
 
 XYZZY is an action applying to nothing.
 
@@ -194,7 +224,7 @@ Understand "CHILL", "say CHILL", "use CHILL", and "cast CHILL" as CHILL.
 Check CHILL (this is the need CHILL horn rule):
 	say "You lack the power to perform this action." instead;
 
-Section 9 - New Responses
+Section 10 - New Responses
 
 Check eating (this is the can't eat what's big rule):
 	if the noun is big:
@@ -257,7 +287,7 @@ First reaching outside a closed liquid container:
 	say "You can't reach that from here.";
 	deny access;
 
-Section 10 - Buttons
+Section 11 - Buttons
 
 A button is a kind of thing. A button is usually fixed in place and small.
 
@@ -311,7 +341,7 @@ Rule for letting time pass for something (called the item):
 		if the timer of the item is at least 0:
 			decrement the timer of the item;
 
-Section 11 - Fluid Receptacles
+Section 12 - Fluid Receptacles
 
 Fluid is a kind of value. The fluids are air, putrid, and water.
 
@@ -349,7 +379,7 @@ Check inserting something into (this is the can't insert what's not liquid into 
 
 The can't insert what's not liquid into fluid receptacles rule is listed before the convert insert to drop where possible rule in the check inserting it into rulebook.
 
-Section 12 - Pouring it on
+Section 13 - Pouring it on
 
 Pouring it on is an action applying to two things.
 
@@ -383,7 +413,7 @@ Check inserting something into (this is the convert insert to pour where possibl
 
 The convert insert to pour where possible rule is listed first in the check inserting it into rulebook.
 
-Section 13 - Drinking
+Section 14 - Drinking
 
 Understand nothing as drinking.
 
@@ -438,7 +468,7 @@ Check eating (this is the convert eating to drinking where possible rule):
 
 The convert eating to drinking where possible rule is listed first in the check eating rulebook.
 
-Section 14 - Understanding
+Section 15 - Understanding
 
 Understand "walk", "jog", "run", "travel", "walk [direction]", "jog [direction]", "run [direction]", and "travel [direction]" as going.
 
