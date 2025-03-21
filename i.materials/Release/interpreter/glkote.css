@@ -83,6 +83,8 @@
 	 prompt). Without this, they'd be flush against the bottom of the
 	 window, which would be ugly. Do not modify this CSS class. */
 	margin-bottom: 14px;
+	/* IT'S BEING MODIFIED! MUAHAHAHAHA! */
+	background-color: #eeeeee;
 }
 
 .HasNoInputField .BufferLine:last-child .BlankLineSpan {
@@ -186,6 +188,7 @@
 
 .Style_header {
 	font-weight: bold;
+	color: #c00000;
 }
 
 .BufferWindow .Style_header {

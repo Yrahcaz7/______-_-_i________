@@ -11,8 +11,10 @@ Use American dialect and the serial comma. Use no deprecated features.
 Include Glulx Text Effects by Emily Short. Include Punctuation Removal by Emily Short. Include Locksmith by Emily Short.
 
 Table of User Styles (continued)
-style name      	color
-special-style-1	"#c00000"
+style name      	background color	color
+header-style    	--                   	"#c00000"
+input-style      	"#eeeeee"        	--
+special-style-1 	--                   	"#c00000"
 
 Does the player mean unlocking with a passkey (this is the likely to mean unlocking with a passkey rule):
 	it is likely;
@@ -47,7 +49,7 @@ The new can’t go that way rule is listed instead of the can’t go that way ru
 Section 2 - Command Alteration
 
 Before reading a command while the turn count is 1:
-	say "(This is your chance to say what the protagonist should do next. After the '>', try typing 'take inventory'.)";
+	say "[first custom style](This is your chance to say what the protagonist should do next. After the '>', try typing 'take inventory'.)[roman type][line break]";
 
 Rule for printing a parser error when the latest parser error is the not a verb I recognise error:
 	say "That's not a verb I recognize. You can type 'help' to see a list of meaningful verbs that are understood."
