@@ -17,11 +17,6 @@ header-style    	--                   	"#c00000"
 input-style      	"#eeeeee"        	--
 special-style-1 	--                   	"#c00000"
 
-Index map with EPS file.
-Index map with room-outline-thickness of the first room set to 2.
-Index map with room-size set to 32 and room-size of the Prison Lobby set to 64.
-Index map with room-shape of the Hall of Prison Cells set to "rectangle" and room-shape of the Prison Yard set to "circle".
-
 Does the player mean unlocking with a passkey (this is the likely to mean unlocking with a passkey rule):
 	it is likely;
 
@@ -29,9 +24,9 @@ Section 1 - Viable Exits
 
 Definition: a direction (called thataway) is viable:
 	if the room thataway from the location is a room:
-		if the location is The Storage Room and the room thataway from the location is The Prison Basement and the ominous hole is closed:
+		if the location is the Storage Room and the room thataway from the location is the Prison Basement and the ominous hole is closed:
 			no;
-		if the location is The Prison Basement and the room thataway from the location is The Storage Room:
+		if the location is the Prison Basement and the room thataway from the location is the Storage Room:
 			no;
 		yes;
 	no;
