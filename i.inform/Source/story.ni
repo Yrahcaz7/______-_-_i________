@@ -41,7 +41,10 @@ The new can’t go that way rule is listed instead of the can’t go that way ru
 Section 2 - Command Alteration
 
 Before reading a command while the turn count is 1:
-	say "(This is your chance to say what the protagonist should do next. After the '>', try typing 'take inventory'.)[line break](You can type 'help' at any time to see a list of meaningful commands that are understood.)";
+	say "(This is your chance to say what the protagonist should do next. After the '>', try typing 'take inventory'.)";
+
+Rule for printing a parser error when the latest parser error is the not a verb I recognise error:
+	say "That's not a verb I recognize. You can type 'help' to see a list of meaningful verbs that are understood."
 
 After reading a command:
 	remove stray punctuation;
