@@ -4,6 +4,8 @@ The story headline is "An █teract█e F█t█n".
 
 Chapter 1 - Setup
 
+Release along with a website and an interpreter.
+
 Use American dialect and the serial comma. Use no deprecated features.
 
 Include Glulx Text Effects by Emily Short. Include Punctuation Removal by Emily Short. Include Locksmith by Emily Short.
