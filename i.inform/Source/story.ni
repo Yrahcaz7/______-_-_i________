@@ -6,7 +6,11 @@ Chapter 1 - Setup
 
 Use American dialect and the serial comma. Use no deprecated features.
 
-Include Punctuation Removal by Emily Short. Include Locksmith by Emily Short.
+Include Glulx Text Effects by Emily Short. Include Punctuation Removal by Emily Short. Include Locksmith by Emily Short.
+
+Table of User Styles (continued)
+style name      	color
+special-style-1	"#c00000"
 
 Does the player mean unlocking with a passkey (this is the likely to mean unlocking with a passkey rule):
 	it is likely;
@@ -109,14 +113,14 @@ Requesting help is an action out of world.
 Understand "h", "help", "what to do", and "what can/do I do" as requesting help.
 
 Carry out requesting help (this is the annouce help rule):
-	say "Actions you can take:[line break]  take inventory  /  inventory  /  i[line break]  take 'things'  /  get 'things'  /  pick 'things' up[line break]  drop 'things'  /  put 'things' down[line break]  put 'things' on 'something'[line break]  eat 'something'[line break]  go 'a direction'  /  'a direction'[line break]  enter 'something'  /  go in 'something'[line break]  exit  /  stand up  /  get out[line break]  look around  /  look[line break]  examine 'something'  /  x 'something'[line break]  look under 'something'[line break]  search 'something'  /  look in 'something'[line break]  lock 'something' (optionally, with 'a key')[line break]  unlock 'something' (optionally, with 'a key')[line break]  open up 'something'  /  open 'something'[line break]  close up 'something'  /  close 'something'[line break]  wear 'something'  /  put 'something' on[line break]  remove 'something'  /  take 'something' off[line break]  throw 'something' at 'something else'[line break]  push 'something'  /  move 'something'[line break]  squeeze 'something'  /  crush 'something'[line break]  press 'a button'  /  push 'a button'[line break]  pour 'something' on 'something else'[paragraph break]Out-of-world actions:[line break]  quit / q[line break]  save[line break]  restore[line break]  restart[line break]  superbrief[line break]  verbose[line break]  brief[paragraph break]You can interact with anything that is in your inventory or the room that you are currently in.";
+	say "Actions you can take:[line break]  take inventory  /  inventory  /  i[line break]  take 'things'  /  get 'things'  /  pick 'things' up[line break]  drop 'things'  /  put 'things' down[line break]  put 'things' on 'something'[line break]  eat 'something'[line break]  go 'a direction'  /  'a direction'[line break]  enter 'something'  /  go in 'something'[line break]  exit  /  stand up  /  get out[line break]  look around  /  look[line break]  examine 'something'  /  x 'something'[line break]  look under 'something'[line break]  search 'something'  /  look in 'something'[line break]  lock 'something' (optionally, with 'a key')[line break]  unlock 'something' (optionally, with 'a key')[line break]  open up 'something'  /  open 'something'[line break]  close up 'something'  /  close 'something'[line break]  wear 'something'  /  put 'something' on[line break]  remove 'something'  /  take 'something' off[line break]  throw 'something' at 'something else'[line break]  push 'something'  /  move 'something'[line break]  squeeze 'something'  /  crush 'something'[line break]  press 'a button'  /  push 'a button'[line break]  pour 'something' on 'something else'[paragraph break][first custom style]Out-of-world actions:[line break]  quit / q[line break]  save[line break]  restore[line break]  restart[line break]  superbrief  /  short[line break]  verbose  /  long[line break]  brief  /  normal[line break]  room tally  /  rooms[roman type][paragraph break]You can interact with anything that is in your inventory or the room that you are currently in.";
 
 Requesting the room tally is an action out of world.
 
 Understand "rooms", "room progress/tally", and "exploration progress" as requesting the room tally.
 
 Carry out requesting the room tally (this is the annouce the room tally rule):
-	say "You have been to [number of visited rooms] out of [number of rooms] room[s]."
+	say "You have been to [number of visited rooms] out of [number of rooms] room[s].";
 
 Section 7 - Useless Actions
 
@@ -1003,7 +1007,7 @@ The crushed door is in the Washroom. "You can see a crushed door lying on the gr
 
 Section 9 - The Prison Basement
 
-The Prison Basement is a room. "The light entering through [the hole] in the ceiling dimly lights the area around you." The Basement is in the Old Prison.
+The Prison Basement is a room. "The light entering through [the hole] in the ceiling dimly lights the area around you.[if unvisited][paragraph break][first custom style]YOU HAVE REACHED THE END OF THE DEMO. MORE CONTENT IS COMING SOON![roman type][end if]". The Basement is in the Old Prison.
 
 Report going to the Basement for the first time:
 	say "You fall down through [the hole] into the basement of the prison. As you hit the ground, you hear several disturbing noises as multiple parts of your body start to ache.";
