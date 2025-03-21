@@ -1,6 +1,7 @@
 The story title is "███[']█ █i████". [Dodeca's Divergence]
 The story author is "Yrahcaz7".
 The story headline is "An █teract█e F█t█n".
+The release number is 1.
 
 Chapter 1 - Setup
 
@@ -15,6 +16,11 @@ style name      	background color	color
 header-style    	--                   	"#c00000"
 input-style      	"#eeeeee"        	--
 special-style-1 	--                   	"#c00000"
+
+Index map with EPS file.
+Index map with room-outline-thickness of the first room set to 2.
+Index map with room-size set to 32 and room-size of the Prison Lobby set to 64.
+Index map with room-shape of the Hall of Prison Cells set to "rectangle" and room-shape of the Prison Yard set to "circle".
 
 Does the player mean unlocking with a passkey (this is the likely to mean unlocking with a passkey rule):
 	it is likely;
