@@ -574,7 +574,7 @@ The Hall of Prison Cells is a room. "It has a few different cells along each wal
 Report going to the Hall for the first time:
 	say "You step out of the cell into the hall.";
 
-The rusted broken cell bars is east of the Overgrown Cell and west of the Hall. The broken bars is an open door. The broken bars is not openable. The printed name of the broken bars is "set of rusted and broken cell bars". The description of the broken bars is "The bars seem broken beyond repair. [if the location is Overgrown Cell]You can probably just walk out of the cell at this point[else]They look marginally older than all of the other cell's bars[end if]."
+The broken cell bars is east of the Overgrown Cell and west of the Hall. The broken bars is an open door. The broken bars is not openable. The printed name of the broken bars is "set of broken cell bars". The description of the broken bars is "The bars are very rusted and seem broken beyond repair. [if the location is Overgrown Cell]You can probably just walk out of the cell at this point[else]They look marginally older than all of the other cell's bars[end if]."
 
 The glowing orb is scenery in the Hall. "Apon closer inspection, you see that the orb has a transparent outer layer and a glowing inner layer, both made out of materials you don't recognize. The outer layer appears to have many cracks in it but is still holding together."
 
