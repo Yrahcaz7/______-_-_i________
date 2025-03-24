@@ -45,6 +45,7 @@
 	position: absolute;
 	margin: 0px;
 	background: var(--body-bg);
+	transition: all 1s ease;
 }
 
 .BufferWindow {

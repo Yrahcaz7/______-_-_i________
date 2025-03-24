@@ -4,16 +4,17 @@ function setProperty(property, value) {
 	document.documentElement.style.setProperty(property, value);
 };
 
+const THEME_PROPERTIES = ["body-fg", "body-bg", "link-normal", "link-visited", "link-hover", "user-1"];
+
 function toggleDarkness() {
 	const key = "var(--" + (darkened ? "light" : "dark");
-	setProperty("transition", "all 1s ease");
 	setProperty("--terp-fg", key + "-fg)");
 	setProperty("--terp-bg", key + "-bg)");
 	setProperty("--terp-input", key + "-input)");
 	setProperty("--header-color", key + "-header)");
-	setProperty("--body-fg", key + "-body-fg)");
-	setProperty("--body-bg", key + "-body-bg)");
-	setProperty("--user-1", key + "-user-1)");
+	THEME_PROPERTIES.forEach(property => {
+		setProperty("--" + property, key + "-" + property + ")");
+	});
 	darkened = !darkened;
 };
 
