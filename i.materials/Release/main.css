@@ -182,15 +182,11 @@ a:hover {
 }
 
 .coverimage {
-	margin-top: 3em;
-	margin-right: 1em;
-	text-align: right;
-	float: right;
-}
-
-.coverimage img {
 	max-width: 25vw;
 	max-height: calc(100vh - 6em);
+	margin: 3em 1em 0.5em 0.5em;
+	text-align: right;
+	float: right;
 }
 
 /*
