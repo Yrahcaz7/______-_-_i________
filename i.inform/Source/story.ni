@@ -5,7 +5,7 @@ The release number is 1.
 
 Chapter 1 - Setup
 
-Release along with a website and an interpreter.
+Release along with an "i" website and an interpreter.
 
 Use American dialect and the serial comma. Use no deprecated features.
 

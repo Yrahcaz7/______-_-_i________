@@ -1,15 +1,155 @@
+/* Based on the OneColumn template by Andrew Plotkin */
+
+:root {
+	--light-fg: #222;
+	--light-bg: #e0e0e0;
+	--light-input: #0b4c8e;
+	--light-body-fg: #000;
+	--light-body-bg: #f0f0f0;
+	--light-header: #e0e0e0;
+	--light-user-1: #c00000;
+
+	--dark-fg: #e0e0e0;
+	--dark-bg: #222;
+	--dark-input: #74abff;
+	--dark-body-fg: #f0f0f0;
+	--dark-body-bg: #000;
+	--dark-header: #464d53;
+	--dark-user-1: #f04040;
+
+	--normal-font: Georgia, "AsyncGlk Serif", serif;
+	--mono-font: "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", monospace;
+
+	--header-size: 72px;
+	--footer-size: 24px;
+	--game-width: 1000px;
+
+	--terp-fg: var(--light-fg);
+	--terp-bg: var(--light-bg);
+	--terp-input: var(--light-input);
+	--header-color: var(--light-header);
+	--body-fg: var(--light-body-fg);
+	--body-bg: var(--light-body-bg);
+	--user-1: var(--light-user-1);
+
+	background: var(--body-bg);
+	color: var(--body-fg);
+
+	--glkote-buffer-fg: var(--terp-fg);
+	--glkote-buffer-bg: var(--terp-bg);
+	--glkote-buffer-reverse-bg: var(--terp-fg);
+	--glkote-buffer-reverse-fg: var(--terp-bg);
+	--glkote-grid-fg: var(--terp-fg);
+	--glkote-grid-bg: var(--terp-bg);
+	--glkote-grid-reverse-bg: var(--terp-fg);
+	--glkote-grid-reverse-fg: var(--terp-bg);
+	--glkote-input-fg: var(--terp-input);
+
+	--glkote-prop-family: var(--normal-font);
+	--glkote-mono-family: var(--mono-font);
+}
+
 body {
-	background: #F0F0F0;
-	font-family: Georgia, Palatino, "Times New Roman", Times, serif;
+	font-family: var(--normal-font);
 	font-size: 100%;
 	-webkit-text-size-adjust: none;
+	margin: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
 }
 
-.container {
+/* Used in index.html and source.html. */
+#pageheader {
+	width: 100%;
+	top: 0;
+	height: var(--header-size); /* header height */
+	margin: 0;
+	background: var(--header-color); /* this color fills the header, all the way across */
+}
+
+/* Used in play.html. */
+#header {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	height: var(--header-size); /* header height */
+	margin: 0;
+	background: var(--header-color); /* this color fills the header, all the way across */
+}
+
+/* Used in all pages -- defines the width. */
+#subheader {
+	position: relative;
+	max-width: var(--game-width); /* column width */
+	height: 100%;
+	margin: auto;
+	/* a background color here will fill the header at a width of 600px */
+}
+
+/* Used in index.html and source.html. */
+#pagefooter {
+	width: 100%;
+	height: var(--footer-size); /* footer height */
+	margin: 0;
 	margin-top: 2em;
+	background: var(--header-color); /* this color fills the footer, all the way across */
 }
 
-/* Paragraph features defined here apply without distinction to blurb and source paragraphs. */
+/* Used in play.html. */
+#footer {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	height: var(--footer-size); /* footer height */
+	margin: 0;
+	background: var(--header-color); /* this color fills the footer, all the way across */
+}
+
+/* Used in all pages -- defines the width. */
+#subfooter {
+	position: relative;
+	max-width: var(--game-width); /* column width */
+	height: 100%;
+	margin: auto;
+	/* a background color here will fill the footer at a width of 600px */
+}
+
+/* This class is used for the sample header and footer text. You can replace it with your own CSS classes. */
+.framelabel {
+	padding-top: 1em;
+	font-size: 14px;
+	font-style: italic;
+}
+
+/* Used in index.html and source.html. */
+#pagecolumn {
+	width: 100%;
+	top: var(--header-size); /* header height */
+	margin: 0;
+}
+
+/* Used in play.html. */
+#column {
+	position: absolute;
+	width: 100%;
+	top: var(--header-size); /* header height */
+	bottom: var(--footer-size); /* footer height */
+	margin: 0;
+}
+
+/* Used in all pages -- defines the width. */
+#subcolumn {
+	position: relative;
+	max-width: var(--game-width); /* column width */
+	height: 100%;
+	margin: auto;
+}
+
+/* 
+Paragraph features defined here apply without distinction to blurb and
+source paragraphs. 
+*/
 
 p {
 	font-size: 1em;
@@ -39,12 +179,10 @@ a:hover {
 }
 
 .coverimage {
-	width: 12.6em;
-	margin-top: 2em;
-	margin-left: 1em;
-	float: left;
-	clear: left;
+	margin-top: 3em;
+	margin-right: 1em;
 	text-align: right;
+	float: right;
 } 
 
 /* Here we make invisible the one-pixel border that currently goes around the cover image. */
@@ -66,10 +204,9 @@ To change the appearance of specific elements, tweak
 	.bibliography for the release information
 */
 
-.introduction { 
+.introduction {
 	padding-top: 2.4em;
-	margin-left: 15.4em;
-	width: 35em;
+	margin-left: 1em;
 	line-height: 1;
 	text-align: left;
 }
@@ -98,8 +235,7 @@ h2 {
 
 .about {
 	margin-top: 2.8em;
-	margin-left: 15.4em;
-	width: 35em;
+	margin-left: 1em;
 	text-align: left;
 }
 
@@ -123,8 +259,7 @@ the IFID for the game and suggests interpreters for the author to use.
 */
 
 .playinfo {
-	margin: 1em 0px 0px 15.4em;
-	width: 35em;
+	margin: 1em 0 0 1em;
 }
 
 .playinfo p {
@@ -139,11 +274,7 @@ side of the page.
 */
 
 .links {
-	width: 13em;
-	float: left;
-	clear: left;
-	text-align: right; 
-	margin-top: 2.5em;
+	font-size: 0.8em;
 }
 
 .links li {
@@ -160,21 +291,19 @@ surrounding text. In order to get rid of them entirely, we would add
 */ 
 
 span.filetype {
-	font-size: .5em;
+	font-size: .75em;
 }
 
 /* Source formatting applies to the source text on generated pages. */
 
 .source {
 	margin-top: 1.4em;
-	margin-left: 15.4em;
-	width: 35em;
+	margin-left: 1em;
 	line-height: 1.4;
 }
 
 .sourceintroduction {
-	margin-left: 15.4em;
-	width: 35em;
+	margin-left: 1em;
 }
 
 .sourceintroduction h1 {
@@ -192,21 +321,10 @@ span.filetype {
 }
 
 .sourcecoverimage {
-	width: 12.6em;
-	margin-top: 2em;
+	margin-top: 1em;
 	margin-left: 1em;
-	float: left;
-	clear: left;
 	text-align: right;
-} 
-
-/* Here we make invisible the one-pixel border that currently goes around the cover image. */
-
-.sourcecoverimage a {
-	font-style: normal;
-	font-variant: normal;
-	font-weight: normal;
-	color: #FFF;
+	float: right;
 }
 
 .sourcebibliography {
@@ -275,7 +393,6 @@ with large project files.
 
 .notes {
 	margin-left: 16.8em;
-	width: 35em;
 }
 
 .notes p {
@@ -287,25 +404,25 @@ with large project files.
 	font-style: italic;
 }
 
-p.indent0  {
-	margin-bottom: 0;  
+p.indent0 {
+	margin-bottom: 0;
 }
 
-p.indent1  {
+p.indent1 {
 	padding-left: 2.8em;
 	text-indent: -.7em;
 	margin-bottom: 0;
 	margin-top: 0;
 }
 
-p.indent2  {
+p.indent2 {
 	margin-bottom: 0; 
 	padding-left: 5.6em;
 	text-indent: -.7em;
 	margin-top: 0;
 }
 
-p.indent3  {
+p.indent3 {
 	padding-left: 8.4em;
 	text-indent: -.7em;
 	margin-bottom: 0;
@@ -356,15 +473,6 @@ p.indent9 {
 
 /* Styles for play.html */
 
-.play .coverimage {
-	position: fixed;
-}
-
-.play .links {
-	margin-top: 200px;
-	position: fixed;
-}
-
 .interpretercredit {
 	bottom: 1em;
 	font-size: 80%;
@@ -373,30 +481,51 @@ p.indent9 {
 
 #gameport {
 	background: #F0F0F0;
-	bottom: 0px;
-	left: 15.4em;
+	bottom: 0;
+	left: 0;
 	line-height: 1.4;
-	margin: 0px;
+	margin: 0;
 	position: absolute;
-	right: 0px;
-	top: 0px;
+	right: 0;
+	top: 0;
 }
 
 /* Styles for mobile browsers: change to a one-column layout. */
 
-@media screen and (max-width: 600px) {
-	.coverimage, .introduction, .links, .about, .playinfo, .source, .sourceintroduction, .sourcecoverimage, .notes {
+@media screen and (max-width: 1000px) {
+	:root {
+		--game-width: auto;
+		--footer-size: 0;
+		--header-size: 48px;
+	}
+
+	.coverimage, .introduction, .about, .playinfo, .source, .sourceintroduction, .sourcecoverimage, .notes {
 		float: none;
 		margin-left: 1em;
+		margin-right: 1em;
 		text-align: left;
 	}
 
-	.play .coverimage, .play .links, .play .interpretercredit {
+	.play .coverimage, .play .interpretercredit {
 		display: none;
 	}
 
 	#gameport {
-		left: 0px;
+		left: 0;
 		width: auto;
+	}
+
+	#subheader, #subfooter, #subcolumn {
+		width: auto;
+	}
+
+	#footer {
+		display: none;
+	}
+
+	.framelabel, .play .links {
+		font-size: 12px;
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 }

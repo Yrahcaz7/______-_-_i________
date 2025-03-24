@@ -44,7 +44,7 @@
 	 can change that, but don't touch the position or margin. */
 	position: absolute;
 	margin: 0px;
-	background: #F0F0F0;
+	background: var(--body-bg);
 }
 
 .BufferWindow {
@@ -62,6 +62,7 @@
 
 .GridWindow {
 	background: #D0D0C0;
+	color: #000;
 	overflow: hidden;
 	font-family: monaco, andale mono, lucidatypewriter, courier, courier new, monospace; /* necessary! */
 	font-size: 14px;
@@ -85,6 +86,7 @@
 	 "I'm modifying it anyway" - Yrahcaz7 */
 	margin-bottom: 19.6px;
 	background: #DDD;
+	color: #000;
 }
 
 .HasNoInputField .BufferLine:last-child .BlankLineSpan {
@@ -212,9 +214,8 @@
 
 .Style_input {
 	font-weight: bold;
-	color: #300000;
 }
 
 .Style_user1 {
-	color: #c00000;
+	color: var(--user-1);
 }

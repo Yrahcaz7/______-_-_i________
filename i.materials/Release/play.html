@@ -6,13 +6,12 @@
 	<title>Yrahcaz7 - &block;&block;&block;'&block; &block;i&block;&block;&block;&block; — Play</title>
 	<meta charset="UTF-8">
 	<meta name="author" content="Yrahcaz7">
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="interpreter/glkote.css" type="text/css">
-	<link rel="stylesheet" href="interpreter/dialog.css" type="text/css">
-	<script src="interpreter/jquery-1.12.4.min.js" type="text/javascript"></script>
-	<script src="interpreter/glkote.min.js" type="text/javascript"></script>
-	<script src="interpreter/quixe.min.js" type="text/javascript"></script>
-	<script src="interpreter/resourcemap.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="interpreter/glkote.css">
+	<link rel="stylesheet" type="text/css" href="interpreter/dialog.css">
+	<script type="text/javascript" src="interpreter/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="interpreter/glkote.min.js"></script>
+	<script type="text/javascript" src="interpreter/quixe.min.js"></script>
+	<script type="text/javascript" src="interpreter/resourcemap.js"></script>
 	<script type="text/javascript">
 		game_options = {
 			image_info_map: "StaticImageInfo", // image data is here, not in blorb
@@ -23,19 +22,22 @@
 			outspacing: 0 // gap between windows and edge of gameport
 		};
 	</script>
-	<script src="interpreter/i.gblorb.js" type="text/javascript"></script>	
+	<script type="text/javascript" src="interpreter/i.gblorb.js"></script>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script type="text/javascript" src="main.js"></script>
 </head>
 
 <body class="play">
-	<div class="container">
-		<div class="coverimage"><span><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></span></div>
+	<div id="header"><div id="subheader">
+		<div class="framelabel">&block;&block;&block;'&block; &block;i&block;&block;&block;&block; &mdash; Yrahcaz7</div>
 		<div class="links">
-		<div class="smalltitle">&block;&block;&block;'&block; &block;i&block;&block;&block;&block;</div>
-		<ul>
-			<li><a href="index.html">Home page</a></li>
-		</ul>
+			<span class="download"><a href="i.gblorb">Story File</a> <span class="filetype">(Blorb,&nbsp;744KB)</span></span>
+			&mdash;
+			<a href="javascript:toggleDarkness();">Dark mode</a>
 		</div>
-		<div id="gameport">
+	</div></div>
+	<div id="column"><div id="subcolumn">
+		<div class="container"><div id="gameport">
 			<div id="windowport">
 				<noscript>
 					<hr>
@@ -48,9 +50,11 @@
 				<em>&nbsp;&nbsp;&nbsp;Loading...</em>
 			</div>
 			<div id="errorpane" style="display:none;"><div id="errorcontent">...</div></div>
-		</div>
-	</div>
-	<div class="interpretercredit"><a href="http://eblong.com/zarf/glulx/quixe/">Quixe for Inform 7 (v. 2.2.1)</a></div>
+		</div></div>
+	</div></div>
+	<div id="footer"><div id="subfooter">
+		<div class="framelabel"><div class="interpretercredit"><a href="http://eblong.com/zarf/glulx/quixe/">Quixe for Inform 7 (v. 2.2.1)</a></div></div>
+	</div></div>
 </body>
 
 </html>
