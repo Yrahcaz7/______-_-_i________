@@ -64,13 +64,22 @@ The last command is a text that varies.
 
 The parser error flag is a truth state that varies. The parser error flag is false.
 
-Rule for printing a parser error when the latest parser error is the only understood as far as error and the player's command matches the regular expression "with|of":
+To ignore unnecessary words:
 	now the last command is the player's command;
 	now the parser error flag is true;
 	let unnecessary be "[the player's command]";
 	replace the regular expression ".* (with|of) (.*)" in unnecessary with "\1 \2";
 	say "(ignoring the unnecessary words '[unnecessary]')";
 	replace the regular expression "(with|of) .*" in the last command with "";
+
+Rule for printing a parser error when the latest parser error is the only understood as far as error and the player's command matches the regular expression "with|of":
+	ignore unnecessary words;
+
+Rule for printing a parser error when the latest parser error is the can't see any such thing error and the player's command matches the regular expression "with|of":
+	if the player's command matches the regular expression "fill|lock":
+		say "You can't see any such thing.";
+	else:
+		ignore unnecessary words;
 
 Rule for reading a command when the parser error flag is true:
 	now the parser error flag is false;
