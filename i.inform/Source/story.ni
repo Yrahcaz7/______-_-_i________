@@ -13,7 +13,6 @@ Include Glulx Text Effects by Emily Short. Include Punctuation Removal by Emily 
 
 Table of User Styles (continued)
 style name      	background color	color
-header-style    	--                   	"#c00000"
 input-style      	"#eeeeee"        	--
 special-style-1 	--                   	"#c00000"
 
@@ -107,6 +106,10 @@ A horn has some text called command. The command of a horn is usually "_____".
 
 Check examining a horn:
 	say "It is a crystalline [the color of the item described] horn with '[the command of the item described]' inscribed on it. The horn feels rather familiar..." instead.
+
+The XYZZY horn is a horn. The color of the XYZZY horn is "bright green". The command of the XYZZY horn is "XYZZY".
+
+The CHILL horn is a horn. The color of the CHILL horn is "light blue". The command of the CHILL horn is "CHILL".
 
 Section 5 - The Player
 
@@ -235,15 +238,20 @@ XYZZY is an action applying to nothing.
 
 Understand "XYZZY", "say XYZZY", "use XYZZY", and "cast XYZZY" as XYZZY.
 
+To say cryptic denial:
+	say "Your heart starts beating faster. Your vision begins to blur...[paragraph break]You feel beads of sweat and blood trickle down your face...[paragraph break]...[paragraph break]......[paragraph break]...and eventually you calm down. You don't know why you expected that to do aything in the first place.";
+
 Check XYZZY (this is the need XYZZY horn rule):
-	say "You lack the power to perform this action." instead;
+	if the XYZZY horn is not part of the player:
+		say "[cryptic denial]" instead;
 
 CHILL is an action applying to nothing.
 
 Understand "CHILL", "say CHILL", "use CHILL", and "cast CHILL" as CHILL.
 
 Check CHILL (this is the need CHILL horn rule):
-	say "You lack the power to perform this action." instead;
+	if the CHILL horn is not part of the player:
+		say "[cryptic denial]" instead;
 
 Section 10 - New Responses
 
@@ -1102,7 +1110,7 @@ Check locking keylessly the icebox:
 Check locking the icebox with something:
 	try locking the top drawer with the second noun instead;
 
-The CHILL horn is a horn in the top drawer. The color of the CHILL horn is "light blue". The command of the CHILL horn is "CHILL".
+The CHILL horn is in the top drawer.
 
 The bottom compartment is an open openable container that is part of the icebox. The description of the bottom compartment is "The bottom compartment of the icebox, used for storing food. It appears to [if open]have [list of things contained by the bottom compartment] inside[else]be closed[end if]."
 
