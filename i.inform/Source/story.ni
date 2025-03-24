@@ -559,7 +559,19 @@ The west prison wall is a backdrop. "The same dull wall you can see anywhere els
 
 Understand "west/w", "the/-- room's/room/-- west/w/-- wall/walls", and "west/w/-- wall/walls of the/-- room" as the west wall.
 
+Does the player mean removing something from a backdrop (this is the unlikely to mean removing something from a backdrop rule):
+	it is unlikely;
+
 Does the player mean inserting something into a backdrop (this is the unlikely to mean inserting something into a backdrop rule):
+	it is unlikely;
+
+Does the player mean throwing something at a backdrop (this is the unlikely to mean throwing something at a backdrop rule):
+	it is unlikely;
+
+Does the player mean locking something with a backdrop (this is the unlikely to mean locking something with a backdrop rule):
+	it is unlikely;
+
+Does the player mean unlocking something with a backdrop (this is the unlikely to mean unlocking something with a backdrop rule):
 	it is unlikely;
 
 Section 1 - The Overgrown Prison Cell
