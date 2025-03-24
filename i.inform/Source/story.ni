@@ -512,6 +512,47 @@ Chapter 2 - The Old Prison
 
 The Old Prison is a region.
 
+The prison floor is a backdrop. "The same dull floor you can see anywhere else in the prison." The floor is privately-named. The printed name of the floor is "floor of the room". The floor is in the Old Prison.
+
+Understand "the/-- room's/room/-- floor/bottom" and "floor/bottom of the/-- room" as the floor.
+
+Does the player mean doing something with the floor (this is the unlikely to mean doing something with the floor rule):
+	it is unlikely;
+
+Check walking up to (this is the can't walk up to floors rule):
+	if the noun is the floor:
+		say "That doesn't make any sense. You're on top of [the noun]." instead;
+
+The prison ceiling is a backdrop. "The same dull ceiling you can see anywhere else in the prison." The ceiling is privately-named. The printed name of the ceiling is "ceiling of the room". The ceiling is in the Old Prison.
+
+Understand "the/-- room's/room/-- ceiling/top" and "ceiling/top of the/-- room" as the ceiling.
+
+Does the player mean doing something with the ceiling (this is the unlikely to mean doing something with the ceiling rule):
+	it is unlikely;
+
+Check walking up to (this is the can't walk up to ceilings rule):
+	if the noun is the ceiling:
+		say "That doesn't make any sense. You can't walk in the air." instead;
+
+The north prison wall is a backdrop. "The same dull wall you can see anywhere else in the prison." The north wall is privately-named. The printed name of the north wall is "north wall of the room". The north wall is in the Old Prison.
+
+Understand "north/n", "the/-- room's/room/-- north/n/-- wall/walls", and "north/n/-- wall/walls of the/-- room" as the north wall.
+
+The east prison wall is a backdrop. "The same dull wall you can see anywhere else in the prison." The east wall is privately-named. The printed name of the east wall is "east wall of the room". The east wall is in the Old Prison.
+
+Understand "east/e", "the/-- room's/room/-- east/e/-- wall/walls", and "east/e/-- wall/walls of the/-- room" as the east wall.
+
+The south prison wall is a backdrop. "The same dull wall you can see anywhere else in the prison." The south wall is privately-named. The printed name of the south wall is "south wall of the room". The south wall is in the Old Prison.
+
+Understand "south/s", "the/-- room's/room/-- south/s/-- wall/walls", and "south/s/-- wall/walls of the/-- room" as the south wall.
+
+The west prison wall is a backdrop. "The same dull wall you can see anywhere else in the prison." The west wall is privately-named. The printed name of the west wall is "west wall of the room". The west wall is in the Old Prison.
+
+Understand "west/w", "the/-- room's/room/-- west/w/-- wall/walls", and "west/w/-- wall/walls of the/-- room" as the west wall.
+
+Does the player mean inserting something into a backdrop (this is the unlikely to mean inserting something into a backdrop rule):
+	it is unlikely;
+
 Section 1 - The Overgrown Prison Cell
 
 When play begins:
@@ -519,8 +560,14 @@ When play begins:
 
 The Overgrown Prison Cell is a room. "It appears to have been abandoned long ago. Various plants are growing in many cracks in the floor. On the east side of the room, there is a [broken bars] with a hallway past them.[if the player is in the pool of blood] Lying in a pool of blood feels unnerving... maybe you should get up soon.[end if]". The Overgrown Cell is in the Old Prison.
 
-Check going outside when the player is in the Overgrown Cell:
+Check going outside when the location is the Overgrown Cell:
 	try going east instead;
+
+Check examining the floor when the location is the Overgrown Cell:
+	say "Various plants are growing in many cracks in the floor." instead;
+
+Check examining the east wall when the location is the Overgrown Cell:
+	say "On the east side of the room, there is a [broken bars] with a hallway past them." instead;
 
 The large pool of blood is an enterable closed unopenable transparent liquid container in the Overgrown Cell. "You can see a large pool of blood in the middle of the floor." The description of the pool of blood is "Unlike everything else in the room, the blood appears to be new, as it has not yet dried."
 
@@ -569,10 +616,22 @@ Instead of taking off or dropping the worn handcuffs:
 
 Section 2 - The Hall of Prison Cells
 
-The Hall of Prison Cells is a room. "It has a few different cells along each wall, all of which are eerily empty. There is a glowing orb attached to one of the walls that is lighting up the hall and most of the cells. The hallway [if pile is open]leads both north and south, as the [pile] in the south has been pushed aside[else]is blocked by a [pile] in the south, but it seems to lead somewhere northwards[end if]." The Hall is in the Old Prison.
+The Hall of Prison Cells is a room. "It has a few different cells along each wall, all of which are eerily empty. There is [an orb] attached to the east wall that is lighting up the hall and most of the cells. The hallway [if pile is open]leads both north and south, as [the pile] in the south has been pushed aside[else]is blocked by [a pile] in the south, but it seems to lead somewhere northwards[end if]." The Hall is in the Old Prison.
 
 Report going to the Hall for the first time:
 	say "You step out of the cell into the hall.";
+
+Check examining the north wall when the location is the Hall:
+	say "The hallway [if the Prison Lobby is unvisited]seems to lead somewhere[else]leads to the prison lobby[end if] northwards." instead;
+
+Check examining the east wall when the location is the Hall:
+	say "There is [an orb] on the wall. One of the cells on the east side of the hallway seems particularly dark." instead;
+
+Check examining the south wall when the location is the Hall:
+	say "The hallway seems to [if pile is open]lead somewhere southwards, as [the pile] in the south has been pushed aside[else]be blocked by a [pile] in the south[end if]." instead;
+
+Check examining the west wall when the location is the Hall:
+	say "One of the cells on the west side of the hallway seems to be enterable, as its bars are broken." instead;
 
 The broken cell bars is east of the Overgrown Cell and west of the Hall. The broken bars is an open door. The broken bars is not openable. The printed name of the broken bars is "set of broken cell bars". The description of the broken bars is "The bars are very rusted and seem broken beyond repair. [if the location is Overgrown Cell]You can probably just walk out of the cell at this point[else]They look marginally older than all of the other cell's bars[end if]."
 
@@ -610,13 +669,28 @@ Check taking the pile:
 
 Section 3 - The Prison Lobby
 
-The Prison Lobby is north of the Hall of Prison Cells. "It is very spacious and it seems to lead to many different hallways and rooms in different directions. There are many glowing orbs attached to the ceiling in different spots, lighting up the lobby with a pleasant glow. The [front door] in the north appears to be [if front door is open]open[else]closed[end if]. There is also a [decaying door] in the east, a [secure door] in the southeast, and a hallway to the west." The Lobby is in the Old Prison.
+The Prison Lobby is north of the Hall of Prison Cells. "It is very spacious and it seems to lead to many different hallways and rooms in different directions. There are many glowing orbs attached to the ceiling in different spots, lighting up the lobby with a pleasant glow. [The front door] in the north appears to be [if front door is open]open[else]closed[end if]. There is also [a decaying door] in the east, [a secure door] in the southeast, and hallways to the south and west." The Lobby is in the Old Prison.
 
 Report going to the Lobby for the first time:
 	say "As you walk down the hallway into the lobby, bright light from above strikes your face. Your eyes take a moment to adjust to the light.";
 
-Check going outside when the player is in the Lobby:
+Check going outside when the location is the Lobby:
 	try going north instead;
+
+Check examining the ceiling when the location is the Lobby:
+	say "There seems to be many glowing orbs attached to the ceiling of the lobby, too high up to reach." instead;
+
+Check examining the north wall when the location is the Lobby:
+	say "[The front door] in the north [if front door is open]has been opened[else]blocks passage to the outside[end if]. You also see [a desk] in the northeast corner." instead;
+
+Check examining the east wall when the location is the Lobby:
+	say "There seems to be [a decaying door] on the east side of the lobby. You also see [a secure door] in the southeast corner and [a desk] in the northeast corner." instead;
+
+Check examining the south wall when the location is the Lobby:
+	say "There seems to be hallway on the south side of the lobby. You also see [a secure door] in the southeast corner." instead;
+
+Check examining the west wall when the location is the Lobby:
+	say "There seems to be hallway on the west side of the lobby." instead;
 
 The glowing orbs are scenery in the Lobby. "These orbs seem to be the same as the other glowing orbs found elsewhere in the prison. Judging by how old everything in the prison looks, the orbs must retain their glow for a very long time." The take objection of the orbs is "[The orbs] are too high up to reach."
 
@@ -653,14 +727,26 @@ Section 4 - The Storage Room
 
 The Storage Room is a room. "There are bits of destroyed things and litter on the floor. You also see a few bloodstains scattered around on the floor and the things on it. The [decaying door] is on the west side of the room." The Storage is in the Old Prison.
 
-Check going outside when the player is in the Storage:
+Check going outside when the location is the Storage:
 	try going west instead;
+
+Check examining the floor when the location is the Storage:
+	say "There are green fragments, black fragments, small specks, and bloodstains scattered around on the floor[if the ominous hole is open]. You can also see [an ominous hole] in the floor that [the crate] used to cover[end if]." instead;
+
+Check examining the ceiling when the location is the Storage:
+	say "There seems to be [if the location of the rusty key is somewhere]a small open trapdoor in the center of the ceiling. That must have been where [the rusty key] came from[else]some kind of hinge in center of the ceiling[end if]." instead;
+
+Check examining the north wall when the location is the Storage:
+	say "You can see a strange slate attached high up on the north wall of the room." instead;
+
+Check examining the west wall when the location is the Lobby:
+	say "You can see [a decaying door] on the west side of the room that leads back to the lobby." instead;
 
 The decaying door is east of the Lobby and west of the Storage. The decaying door is an open door. The decaying door is not openable. The description of the decaying door is "It is a decaying wood door that leads to [if the location is Lobby]what looks like a ransacked storage room[else]the prison lobby[end if]."
 
 The litter is scenery in the Storage. "Among the bits scattered across the floor, you can see sharp green fragments, soft black fragments, and very small specks."
 
-Understand "destroyed things", "destroyed litter", "bits of things", "bits of litter", "bits of destroyed things", "bits of destroyed litter", "bits of things and litter", "destroyed things and litter", and "bits of destroyed things and litter" as litter.
+Understand "destroyed things/litter", "bits of destroyed/-- things/litter", "destroyed things and litter", and "bits of destroyed/-- things and litter" as litter.
 
 The sharp green fragments is a small scenery in the Storage. "These sharp fragments seem like they might be from some kind of weapon breaking, but you're not too sure." The take objection of the green fragments is "You don't think that's a good idea... there's no good place to grab them from."
 
@@ -753,6 +839,24 @@ The Dark Prison Cell is a room. "You can't see very well in here due to the lack
 
 Check going outside when the player is in the Dark Cell:
 	try going west instead;
+
+Check examining the floor when the location is the Dark Cell:
+	say "You can barely see the floor in front of you." instead;
+
+Check examining the ceiling when the location is the Dark Cell:
+	say "You can't make out the ceiling in here." instead;
+
+Check examining the north wall when the location is the Dark Cell:
+	say "You can barely see the north wall of the room." instead;
+
+Check examining the east wall when the location is the Dark Cell:
+	say "You can't quite make out where the east wall of the room is." instead;
+
+Check examining the south wall when the location is the Dark Cell:
+	say "You can't see the south wall of the room at all." instead;
+
+Check examining the west wall when the location is the Dark Cell:
+	say "You can see [the sturdy bars] on the west side of the room, leading back to the hallway." instead;
 
 The sturdy cell bars is east of the Hall and west of the Dark Cell. The sturdy bars is a locked door. The rusty key unlocks the sturdy bars. The printed name of the sturdy bars is "set of sturdy cell bars". The description of the sturdy bars is "[if the location is Hall]Like most of the cell's bars, they seem oddly sturdy even though they are rusty. [end if]There seems to be a section that can open like a door[if locked], but it appears to be locked[end if]. The bars are on the [if the location is Hall]east side of the hallway. The cell beyond the bars is very dimly lit[else]west side of the room[end if]."
 
@@ -872,17 +976,31 @@ Check pouring the bottle on something:
 
 Section 6 - The Crumbling Hallway
 
-The Crumbling Hallway is west of the Prison Lobby. "The walls are covered with an alarming amount of cracks. The only light is coming from the lobby to the east and two rooms to the south and west. In the west, there are [windowed double doors], but there are no doors to the room in the south." The Hallway is in the Old Prison.
+The Crumbling Hallway is west of the Prison Lobby. "The north wall is covered with an alarming amount of cracks. The only light is coming from the lobby to the east and two rooms to the south and west. In the west, there are [windowed double doors], but there are no doors to the room in the south." The Hallway is in the Old Prison.
 
-The cracked walls are scenery in the Hallway. "There are so many cracks in the walls that you wonder why the hallway hasn't collapsed yet. You can also see a drawing on one of the walls that seems to be made from some kind of green substance."
+Check examining the ceiling when the location is the Hallway:
+	say "The ceiling is covered with an alarming amount of cracks." instead;
 
-Understand "wall" and "cracked wall" as the walls.
+Check examining the north wall when the location is the Hallway:
+	say "There are so many cracks in the north wall that you wonder why the hallway hasn't collapsed yet. You can also see a drawing on it that seems to be made from some kind of green substance." instead;
+
+Check examining the east wall when the location is the Hallway:
+	say "The east end of the hallway leads back to the lobby." instead;
+
+Check examining the south wall when the location is the Hallway:
+	say "There seems to be a doorway on the south side of the hallway." instead;
+
+Check examining the west wall when the location is the Hallway:
+	say "You can see a set of [windowed double doors] leading to a room in the west end of the hallway." instead;
 
 The green drawing is scenery in the Hallway. "The green drawing on the north wall seems to depict an arm with its hand pointing west. The fingernails on the hand seem unusually long."
 
 Section 7 - The Prison Kitchen
 
 The Prison Kitchen is a room. "It appears to be infested with rats, but whenever you see a rat, it darts away faster than you can track it. There are a lot of rat droppings on the floor. On the east side of the room, there are [double doors] leading back to the hallway." The Kitchen is in the Old Prison.
+
+Check examining the east wall when the location is the Kitchen:
+	say "On the east side of the room, you can see a set of [windowed double doors] leading back to the hallway." instead;
 
 The windowed double doors are west of the Crumbling Hallway and east of the Kitchen. The double doors are a closed door. The indefinite article of the double doors is "the". The description of the double doors is "They appear to be made out of a strange shiny material that only has a few cracks in it. The [if open]open[else]closed[end if] doors [if the location is Crumbling Hallway]seem to lead to a room with many rats in it[else]lead back to the crumbling hallway[end if]."
 
@@ -971,6 +1089,9 @@ Section 8 - The Prison Washroom
 
 The Prison Washroom is south of the Crumbling Hallway. "There seem to be various stalls and sinks, but most of them seem destroyed. One of the sinks has a [stream] running out of its faucet." The Washroom is in the Old Prison.
 
+Check examining the north wall when the location is the Washroom:
+	say "There appears to be a doorway on the north side of the room that leads back to the hallway." instead;
+
 The stalls are scenery in the Washroom. "They look like they have been crushed by a large force. The doors to all of the stalls except the stall in the corner have been crushed to the point where they are unopenable."
 
 The stall in the corner is a locked enterable scenery container in the Washroom. "The door to the [stall] seems to be locked from the inside."
@@ -1016,6 +1137,9 @@ The Prison Basement is a room. "The light entering through [the hole] in the cei
 
 Report going to the Basement for the first time:
 	say "You fall down through [the hole] into the basement of the prison. As you hit the ground, you hear several disturbing noises as multiple parts of your body start to ache.";
+
+Check examining the ceiling when the location is the Basement:
+	say "You can see [a hole] in the ceiling which is letting a little light through." instead;
 
 The ominous hole is down from the Storage Room and up from the Basement. The hole is a closed not openable door. The hole is privately-named. "[if the location is Storage Room]There seems to be [a hole] in the corner where the crate used to be.[end if]". The description of the hole is "A hole in the floor of [the Storage Room]. It looks rather ominous."
 
