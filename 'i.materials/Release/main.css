@@ -1,21 +1,21 @@
 :root {
-	--light-fg: #222;
-	--light-bg: #e0e0e0;
-	--light-input: #0b4c8e;
+	--light-terp-fg: #222;
+	--light-terp-bg: #e0e0e0;
+	--light-terp-input: #0b4c8e;
 	--light-body-fg: #000;
 	--light-body-bg: #f0f0f0;
-	--light-header: #e0e0e0;
+	--light-header-color: #e0e0e0;
 	--light-link-normal: #369;
 	--light-link-visited: #006;
 	--light-link-hover: #33c;
 	--light-user-1: #c00000;
 
-	--dark-fg: #e0e0e0;
-	--dark-bg: #222;
-	--dark-input: #74abff;
+	--dark-terp-fg: #e0e0e0;
+	--dark-terp-bg: #222;
+	--dark-terp-input: #74abff;
 	--dark-body-fg: #f0f0f0;
 	--dark-body-bg: #000;
-	--dark-header: #464d53;
+	--dark-header-color: #464d53;
 	--dark-link-normal: #adf;
 	--dark-link-visited: #37d;
 	--dark-link-hover: #6af;
@@ -28,12 +28,12 @@
 	--footer-size: 24px;
 	--game-width: 1000px;
 
-	transition: all 1s ease;
+	transition: color 1s ease, background-color 1s ease;
 
-	--terp-fg: var(--light-fg);
-	--terp-bg: var(--light-bg);
-	--terp-input: var(--light-input);
-	--header-color: var(--light-header);
+	--terp-fg: var(--light-terp-fg);
+	--terp-bg: var(--light-terp-bg);
+	--terp-input: var(--light-terp-input);
+	--header-color: var(--light-header-color);
 	--body-fg: var(--light-body-fg);
 	--body-bg: var(--light-body-bg);
 	--link-normal: var(--light-link-normal);
@@ -170,7 +170,7 @@ Best color schemes are likely to vary depending on cover art.
 a {
 	text-decoration: none;
 	color: var(--link-normal);
-	transition: all 1s ease;
+	transition: color 1s ease, background-color 1s ease;
 }
 
 a:visited {

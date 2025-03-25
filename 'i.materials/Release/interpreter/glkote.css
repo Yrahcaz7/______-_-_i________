@@ -45,7 +45,7 @@
 	position: absolute;
 	margin: 0px;
 	background: var(--body-bg);
-	transition: all 1s ease;
+	transition: color 1s ease, background-color 1s ease;
 }
 
 .BufferWindow {
@@ -176,7 +176,6 @@
 
 .GraphicsWindow canvas {
 	display: block;
-	background: #F0F0F0;
 }
 
 /* The following are the standard Glk styles. */
