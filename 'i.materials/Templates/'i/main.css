@@ -58,6 +58,10 @@
 	--glkote-mono-family: var(--mono-font);
 }
 
+html, body {
+	overscroll-behavior: none;
+}
+
 body {
 	font-family: var(--normal-font);
 	font-size: 100%;
