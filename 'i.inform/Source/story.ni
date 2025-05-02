@@ -33,16 +33,18 @@ Definition: a direction (called thataway) is viable:
 When play begins:
 	now left hand status line is "[location] ([if the number of viable directions is 0]no exits[else if the number of viable directions is 1]exit: [list of viable directions][else]exits: [list of viable directions][end if])";
 
+To say you can't go that way:
+	let count of exits be the number of viable directions;
+	if the count of exits is 0:
+		say "You appear to be trapped in here.";
+	else if the count of exits is 1:
+		say "You can't go that way. From here, the only way out is [list of viable directions].";
+	else:
+		say "You can't go that way. From here, the exits are [list of viable directions].";
+
 Check going (this is the new can’t go that way rule):
 	if the room gone to is nothing:
-		let count of exits be the number of viable directions;
-		if the count of exits is 0:
-			say "You appear to be trapped in here.";
-		else if the count of exits is 1:
-			say "You can't go that way. From here, the only way out is [list of viable directions].";
-		else:
-			say "You can't go that way. From here, the exits are [list of viable directions].";
-		stop the action;
+		say "[you can't go that way]" instead;
 
 The new can’t go that way rule is listed instead of the can’t go that way rule in the check going rulebook.
 
@@ -1178,8 +1180,8 @@ Rule for printing the locale description when the hole is closed:
 	now the hole is mentioned;
 	continue the activity;
 
-Check going down in the Storage Room when the hole is closed:
-	say "You can't go that way." instead;
+Before going down in the Storage Room when the hole is closed:
+	say "[you can't go that way]" instead;
 
 Check going through the hole in the Basement:
 	say "You can't reach [the hole] in the ceiling from all the way down here." instead;
