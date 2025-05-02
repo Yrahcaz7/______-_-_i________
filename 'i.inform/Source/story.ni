@@ -5,7 +5,7 @@ The release number is 1.
 
 Chapter 1 - Setup
 
-Release along with cover art, an "'i" website, and an interpreter.
+Release along with cover art, a file of "Changelog" called "changelog.html", an "'i" website, an interpreter, an introductory postcard, and the library card.
 
 Use American dialect and the serial comma. Use no deprecated features.
 

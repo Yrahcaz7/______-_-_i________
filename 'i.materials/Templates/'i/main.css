@@ -239,20 +239,6 @@ h2 {
 }
 
 /*
-By setting about p and about p + p, we instruct the first paragraph of the
-blurb to be unindented but subsequent paragraphs to be indented a small distance.
-*/
-
-.about p {
-	margin-bottom: 0;
-}
-
-.about p + p {
-	text-indent: 1.4em;
-	margin-top: 0;
-}
-
-/*
 Playinfo affects the paragraph at the bottom of the home-page that supplies
 the IFID for the game and suggests interpreters for the author to use.
 */
@@ -261,7 +247,7 @@ the IFID for the game and suggests interpreters for the author to use.
 	margin: 1em 0 0 1em;
 }
 
-.playinfo p {
+.playinfo>p {
 	font-size: .75em;
 }
 
@@ -273,8 +259,7 @@ side of the page.
 */
 
 .links li {
-	list-style-type: none;
-	list-style-position: default;
+	list-style-type: circle;
 	padding: .4em;
 }
 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifindex version="1.0" xmlns="http://babel.ifarchive.org/protocol/iFiction/">
+    <story>
+        <identification>
+            <ifid>5D1B4FF4-3A20-4C00-9C51-553B9725B678</ifid>
+            <format>glulx</format>
+        </identification>
+        <bibliographic>
+            <title>███'█ █i████</title>
+            <author>Yrahcaz7</author>
+            <headline>An █teract█e F█t█n</headline>
+            <genre>Fiction</genre>
+            <firstpublished>2025</firstpublished>
+            <language>en</language>
+            <group>Inform</group>
+        </bibliographic>
+        <resources>
+            <auxiliary>
+                <leafname>changelog.html</leafname>
+                <description>Changelog</description>
+            </auxiliary>
+        </resources>
+        <cover>
+            <format>png</format>
+            <height>512</height>
+            <width>512</width>
+            <description>The cover art.</description>
+        </cover>
+        <releases>
+            <attached>
+                <release>
+                    <releasedate>2025-05-02</releasedate>
+                    <version>1</version>
+                    <compiler>Inform 7</compiler>
+                    <compilerversion>Inform 10.1.2 (build )</compilerversion>
+                </release>
+            </attached>
+        </releases>
+        <colophon>
+            <generator>Inform 7</generator>
+            <generatorversion>Inform 10.1.2 (build )</generatorversion>
+            <originated>2025-05-02</originated>
+        </colophon>
+        <glulx>
+            <serial>250502</serial>
+            <release>1</release>
+            <compiler>Inform Inform 10.1.2 (build )</compiler>
+            <coverpicture>1</coverpicture>
+        </glulx>
+    </story>
+</ifindex>
