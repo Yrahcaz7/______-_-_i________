@@ -5,7 +5,7 @@ The release number is 1.
 
 Chapter 1 - Setup
 
-Release along with cover art, a file of "Changelog" called "changelog.html", an "'i" website, an interpreter, an introductory postcard, and the library card.
+Release along with cover art, an "'i" website, an interpreter, an introductory postcard, and the library card.
 
 Use American dialect and the serial comma. Use no deprecated features.
 
@@ -127,6 +127,13 @@ The can't eat yourself rule is listed before the can't eat unless edible rule in
 
 Section 6 - New Out-of-World Actions
 
+Requesting info is an action out of world.
+
+Understand "info", "about this/-- game/--", "info about this/-- game/--", "about the game", and "info about the game" as requesting info.
+
+Carry out requesting info (this is the annouce info rule):
+	say "███[']█ █i████ is a work of interactive fiction, in wh█h y█ r███ n█h█g ██t ███lf █d ██ s█ █t █ a j███ █ ███m ██ ███ ██s. P█h█s █e █ ██ ████ ██ ██ ████ ███?[paragraph break][first custom style]You can use the 'help' action to see a list of most actions you can take.";
+
 Requesting help is an action out of world.
 
 Understand "h", "help", "what to do", and "what can/do I do" as requesting help.
@@ -136,7 +143,7 @@ Carry out requesting help (this is the annouce help rule):
 
 Requesting the room tally is an action out of world.
 
-Understand "rooms", "room progress/tally", and "exploration progress" as requesting the room tally.
+Understand "rooms explored/--", and "room exploration/-- progress/tally/count" as requesting the room tally.
 
 Carry out requesting the room tally (this is the annouce the room tally rule):
 	say "You have been to [number of visited rooms] out of [number of rooms] room[s].";
