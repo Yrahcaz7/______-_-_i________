@@ -51,7 +51,7 @@ The new can’t go that way rule is listed instead of the can’t go that way ru
 Section 2 - Command Alteration
 
 Before reading a command while the turn count is 1:
-	say "[first custom style](This is your chance to say what the protagonist should do next. After the '>', try typing 'take inventory'.)[roman type][line break]";
+	say "[first custom style](This is your chance to say what the protagonist should do next. After the '>', try typing 'take inventory'.)";
 
 Rule for printing a parser error when the latest parser error is the not a verb I recognise error:
 	say "That's not a verb I recognize. You can type 'help' to see a list of meaningful verbs that are understood."
@@ -185,7 +185,7 @@ Section 8 - Walking up to
 
 Walking up to is an action applying to one thing.
 
-Understand "go up/-- to [something]", "walk up/-- to [something]", "jog up/-- to [something]", "run up/-- to [something]", and "dart up/-- to [something]" as walking up to.
+Understand "go up/over/-- to [something]", "walk up/over/-- to [something]", "jog up/over/-- to [something]", "run up/over/-- to [something]", and "dart up/over/-- to [something]" as walking up to.
 
 Check walking up to (this is the can't walk up to what's held rule):
 	if the noun is enclosed by the player:
@@ -279,7 +279,7 @@ Check pushing (this is the can't push yourself rule):
 
 Check pushing (this is the can't push what's heavy rule):
 	if the noun is heavy:
-		say "You clearly aren't strong enough to move the [noun]." instead;
+		say "You clearly aren't strong enough to move [the noun]." instead;
 
 Check pushing (this is the can't push what's liquid rule):
 	if the noun is liquid:
@@ -295,7 +295,7 @@ Check taking (this is the can't take what objects rule):
 
 Check taking (this is the can't take what's heavy rule):
 	if the noun is heavy:
-		say "You clearly aren't strong enough to move the [noun]." instead;
+		say "You clearly aren't strong enough to move [the noun]." instead;
 
 Check taking (this is the can't take what's liquid rule):
 	if the noun is liquid:
@@ -307,7 +307,7 @@ The can't take what's liquid rule is listed before the can't take other people r
 
 Check looking under (this is the can't look under what's grounded rule):
 	if the noun is grounded:
-		say "You would need to move the [noun] first." instead;
+		say "You would need to move [the noun] first." instead;
 
 Check attacking (this is the can't attack yourself rule):
 	if the noun is the player:
@@ -317,7 +317,7 @@ The can't attack yourself rule is listed first in the check attacking rulebook.
 
 Check throwing something at (this is the can't throw things at yourself rule):
 	if the second noun is the player:
-		say "Throwing the [noun] at yourself is probably a bad idea." instead;
+		say "Throwing [the noun] at yourself is probably a bad idea." instead;
 
 The can't throw things at yourself rule is listed first in the check throwing it at rulebook.
 
@@ -383,7 +383,7 @@ Section 12 - Fluid Receptacles
 
 Fluid is a kind of value. The fluids are air, putrid, and water.
 
-Understand "liquid" and "putrid liquid" as putrid. Understand "clear" and "clear water" as water.
+Understand "empty" as air. Understand "liquid" as putrid. Understand "clear" as water.
 
 A fluid has some text called the name. The name of a fluid is usually "empty".
 
@@ -401,7 +401,7 @@ Understand the content property as describing a fluid receptacle.
 
 Rule for printing the name of a fluid receptacle:
 	if the content of the item described is air:
-		say "[the name of the content of the item described] [the printed name of the item described]";
+		say "empty [the printed name of the item described]";
 	else:
 		say "[the printed name of the item described] of [the name of the content of the item described]";
 
@@ -413,7 +413,7 @@ Check examining a fluid receptacle:
 
 Check inserting something into (this is the can't insert what's not liquid into fluid receptacles rule):
 	if the noun is not liquid and the second noun is a fluid receptacle:
-		say "The [noun] can't fit inside the [second noun]." instead;
+		say "[The noun] can't fit inside [the second noun]." instead;
 
 The can't insert what's not liquid into fluid receptacles rule is listed before the convert insert to drop where possible rule in the check inserting it into rulebook.
 
@@ -508,9 +508,15 @@ The convert eating to drinking where possible rule is listed first in the check 
 
 Section 15 - Understanding
 
-Understand "walk", "jog", "run", "travel", "walk [direction]", "jog [direction]", "run [direction]", and "travel [direction]" as going.
+Understand nothing as removing it from.
+
+Understand "take [something] from/off [something]", "get [something] from [something]", and "remove [something] from [something]" as removing it from.
 
 Understand "throw away [things preferably held]", "throw [things preferably held] away", "toss [things preferably held]", and "trash [things preferably held]" as dropping.
+
+Understand "fill [something] with [other things]" as inserting it into (with nouns reversed).
+
+Understand "walk", "jog", "run", "travel", "walk [direction]", "jog [direction]", "run [direction]", and "travel [direction]" as going.
 
 Understand "jump in/into/on/onto [something]" as entering.
 
@@ -518,21 +524,15 @@ Understand "look around", "x the/-- room", "examine the/-- room", and "look thro
 
 Understand "open up [something]" as opening.
 
-Understand "move [something]", "move aside [something]", "move [something] aside", "move [something] out of the way", "push aside [something]", "push [something] aside", and "push [something] out of the way" as pushing.
-
 Understand "throw [something preferably held] at/against [something]", "toss [something preferably held] at/against [something]", "fling [something preferably held] at/against [something]", "swing [something preferably held] at/against [something]", "hurl [something preferably held] at/against [something]", and "chuck [something preferably held] at/against [something]" as throwing it at.
 
-Understand "fill [something] with [other things]" as inserting it into (with nouns reversed).
-
 Understand "beat [something]", "harm [something]", "hit [something]", "stab [something]", "strike [something]", "bash [something]", "punch [something]", and "smack [something]" as attacking.
+
+Understand "move [something]", "move aside [something]", "move [something] aside", "move [something] out of the way", "push aside [something]", "push [something] aside", and "push [something] out of the way" as pushing.
 
 Understand "crush [something]" as squeezing.
 
 Understand "lick [something]" as tasting.
-
-Understand nothing as removing it from.
-
-Understand "take [something] from/off [something]", "get [something] from [something]", and "remove [something] from [something]" as removing it from.
 
 Chapter 2 - The Old Prison
 
@@ -540,7 +540,7 @@ The Old Prison is a region.
 
 The prison floor is a backdrop. "The same dull floor you can see anywhere else in the prison." The floor is privately-named. The printed name of the floor is "floor of the room". The floor is in the Old Prison.
 
-Understand "the/-- room's/room/-- floor/bottom" and "floor/bottom of the/-- room" as the floor.
+Understand "room's/room/-- floor/bottom" and "floor/bottom of the/-- room" as the floor.
 
 Does the player mean doing something with the floor (this is the unlikely to mean doing something with the floor rule):
 	it is unlikely;
@@ -551,7 +551,7 @@ Check walking up to (this is the can't walk up to floors rule):
 
 The prison ceiling is a backdrop. "The same dull ceiling you can see anywhere else in the prison." The ceiling is privately-named. The printed name of the ceiling is "ceiling of the room". The ceiling is in the Old Prison.
 
-Understand "the/-- room's/room/-- ceiling/top" and "ceiling/top of the/-- room" as the ceiling.
+Understand "room's/room/-- ceiling/top" and "ceiling/top of the/-- room" as the ceiling.
 
 Does the player mean doing something with the ceiling (this is the unlikely to mean doing something with the ceiling rule):
 	it is unlikely;
@@ -562,33 +562,36 @@ Check walking up to (this is the can't walk up to ceilings rule):
 
 The north prison wall is a backdrop. "The same dull wall you can see anywhere else in the prison." The north wall is privately-named. The printed name of the north wall is "north wall of the room". The north wall is in the Old Prison.
 
-Understand "north/n", "the/-- room's/room/-- north/n/-- wall/walls", and "north/n/-- wall/walls of the/-- room" as the north wall.
+Understand "north/n", "room's/room/-- north/n/-- wall/walls", and "wall/walls of the/-- room" as the north wall.
 
 The east prison wall is a backdrop. "The same dull wall you can see anywhere else in the prison." The east wall is privately-named. The printed name of the east wall is "east wall of the room". The east wall is in the Old Prison.
 
-Understand "east/e", "the/-- room's/room/-- east/e/-- wall/walls", and "east/e/-- wall/walls of the/-- room" as the east wall.
+Understand "east/e", "room's/room/-- east/e/-- wall/walls", and "wall/walls of the/-- room" as the east wall.
 
 The south prison wall is a backdrop. "The same dull wall you can see anywhere else in the prison." The south wall is privately-named. The printed name of the south wall is "south wall of the room". The south wall is in the Old Prison.
 
-Understand "south/s", "the/-- room's/room/-- south/s/-- wall/walls", and "south/s/-- wall/walls of the/-- room" as the south wall.
+Understand "south/s", "room's/room/-- south/s/-- wall/walls", and "wall/walls of the/-- room" as the south wall.
 
 The west prison wall is a backdrop. "The same dull wall you can see anywhere else in the prison." The west wall is privately-named. The printed name of the west wall is "west wall of the room". The west wall is in the Old Prison.
 
-Understand "west/w", "the/-- room's/room/-- west/w/-- wall/walls", and "west/w/-- wall/walls of the/-- room" as the west wall.
+Understand "west/w", "room's/room/-- west/w/-- wall/walls", and "wall/walls of the/-- room" as the west wall.
 
-Does the player mean removing something from a backdrop (this is the unlikely to mean removing something from a backdrop rule):
+Does the player mean removing from a backdrop (this is the unlikely to mean removing something from a backdrop rule):
 	it is unlikely;
 
-Does the player mean inserting something into a backdrop (this is the unlikely to mean inserting something into a backdrop rule):
+Does the player mean putting on a backdrop (this is the unlikely to mean putting something on a backdrop rule):
 	it is unlikely;
 
-Does the player mean throwing something at a backdrop (this is the unlikely to mean throwing something at a backdrop rule):
+Does the player mean inserting into a backdrop (this is the unlikely to mean inserting something into a backdrop rule):
 	it is unlikely;
 
-Does the player mean locking something with a backdrop (this is the unlikely to mean locking something with a backdrop rule):
+Does the player mean throwing at a backdrop (this is the unlikely to mean throwing something at a backdrop rule):
 	it is unlikely;
 
-Does the player mean unlocking something with a backdrop (this is the unlikely to mean unlocking something with a backdrop rule):
+Does the player mean locking with a backdrop (this is the unlikely to mean locking something with a backdrop rule):
+	it is unlikely;
+
+Does the player mean unlocking with a backdrop (this is the unlikely to mean unlocking something with a backdrop rule):
 	it is unlikely;
 
 Section 1 - The Overgrown Prison Cell
@@ -609,7 +612,7 @@ Check examining the east wall when the location is the Overgrown Cell:
 
 The large pool of blood is an enterable closed unopenable transparent liquid container in the Overgrown Cell. "You can see a large pool of blood in the middle of the floor." The description of the pool of blood is "Unlike everything else in the room, the blood appears to be new, as it has not yet dried."
 
-Understand "puddle", "large puddle", "puddle of blood", and "large puddle of blood" as the pool of blood.
+Understand "puddle" as the pool of blood.
 
 Instead of taking, tasting, or drinking the pool of blood:
 	if the player is in the pool of blood:
@@ -642,9 +645,7 @@ Check eating the plants:
 
 The pair of cracked handcuffs is in the Overgrown Cell. "You can see a pair of cracked handcuffs in the corner of the room." The handcuffs are wearable. The description of the handcuffs is "The damaged handcuffs appear to be made out of an exotic material that is different from everything else you can see around you."
 
-Understand "cuffs", "hand cuffs", and "handcuffs" as "[cuffs]".
-
-Understand "[cuffs]", "cracked [cuffs]", "pair of [cuffs]", "pair of cracked [cuffs]", and "cracked pair of [cuffs]" as the handcuffs.
+Understand "cuffs" and "hand cuffs" as the handcuffs.
 
 Report wearing the handcuffs:
 	say "You manage to squeeze your left hand into the handcuff that has more cracks. You can't manage to get your right hand in the other handcuff, though. Maybe this wasn't such a great idea." instead;
@@ -673,6 +674,8 @@ Check examining the west wall when the location is the Hall:
 
 The broken cell bars is east of the Overgrown Cell and west of the Hall. The broken bars is an open door. The broken bars is not openable. The printed name of the broken bars is "set of broken cell bars". The description of the broken bars is "The bars are very rusted and seem broken beyond repair. [if the location is Overgrown Cell]You can probably just walk out of the cell at this point[else]They look marginally older than all of the other cell's bars[end if]."
 
+Understand "bar" as the broken bars.
+
 The glowing orb is scenery in the Hall. "Apon closer inspection, you see that the orb has a transparent outer layer and a glowing inner layer, both made out of materials you don't recognize. The outer layer appears to have many cracks in it but is still holding together."
 
 The mostly transparent shard is a small thing. "You can see a mostly transparent shard lying on the floor[if the location is Hall] underneath the glowing orb[end if]." The description of the shard is "Taken from the outer layer of one of the glowing orbs in the prison. You wonder if it has any use."
@@ -696,7 +699,7 @@ Check going south in the Hall when the pile is closed:
 
 The piece of rubble is a small thing. "You can see a small piece of rubble sitting on the ground." The description of the piece is "Taken from a pile of rubble that likely used to be a part of the ceiling of the prison. You wonder if it has any use."
 
-Understand "small piece", "small rubble", and "small piece of rubble" as the piece.
+Understand "small" as the piece.
 
 Check taking the pile:
 	if the location of the piece is nowhere:
@@ -740,7 +743,7 @@ The inkwell is a small thing supported by the desk. The description of the inkwe
 
 The inkwell can be dry or wet. The inkwell is dry.
 
-Understand "ink" and "ink well" as the inkwell.
+Understand "ink" and "well" as the inkwell.
 
 The key ring is a keychain supported by the desk. The description of the key ring is "Dissapointingly, all of the keys seem to have been taken off of it except one."
 
@@ -810,13 +813,13 @@ The small specks are small scenery in the Storage. "They have greatly varied col
 
 The bloodstains are small scenery in the Storage. "The bloodstains seem to have dried long ago... except for a few fresh ones. Oh yeah, your head is bleeding! You can't believe you forgot about that."
 
-Understand "blood", "stains", and "blood stains" as bloodstains.
+Understand "blood" and "stains" as bloodstains.
 
 The strange slate is in the Storage. "You can see a strange slate on the north wall of the room." The slate is fixed in place. The description of the slate is "It is attached to the wall fairly high up. On the slate, there are what appear to be four buttons arranged in a grid. The lower-right button appears to be cracked. You can also see a strange design in the middle of the button grid."
 
 The upper-left button is a button that is a part of the strange slate. The description of the upper-left button is "It seems to have a drawing of a left hand engraved on it. The button is currently [if unpressed]un[end if]pressed."
 
-Understand "u-l/ul button/--" and "upper/u left/l button/--" as the upper-left button.
+Understand "u-l/ul" and "upper/u left/l" as the upper-left button.
 
 After pressing the upper-left button:
 	if the player is wearing the handcuffs:
@@ -830,15 +833,15 @@ After pressing the upper-left button:
 
 The upper-right button is a button that is a part of the strange slate. The description of the upper-right button is "It seems to have a drawing of a right hand engraved on it. The button is currently [if unpressed]un[end if]pressed."
 
-Understand "u-r/ur button/--" and "upper/u right/r button/--" as the upper-right button.
+Understand "u-r/ur" and "upper/u right/r" as the upper-right button.
 
 The lower-left button is a button that is a part of the strange slate. The description of the lower-left button is "It seems to have a drawing of a left hand engraved on it. The button is currently [if unpressed]un[end if]pressed."
 
-Understand "l-l/ll button/--" and "lower/l left/l button/--" as the lower-left button.
+Understand "l-l/ll" and "lower/l left/l" as the lower-left button.
 
 The lower-right button is a pressed button that is a part of the strange slate. The description of the lower-right button is "It seems to have a drawing of a right hand engraved on it, but it is hard to tell with all the cracks running through the design. The button seems to be stuck in a pressed state."
 
-Understand "l-r/lr button/--" and "lower/l right/r button/--" as the lower-right button.
+Understand "l-r/lr" and "lower/l right/r" as the lower-right button.
 
 The rusty key is a passkey. The description of the rusty key is "It is incredibly rusty but still intact. Maybe it unlocks a door somewhere?".
 
@@ -852,24 +855,22 @@ Every turn:
 		repeat with item running through buttons that are a part of the slate:
 			carry out the letting time pass activity with the item;
 
-The strange design is a part of the strange slate. The description of the strange design is "It looks like a '∞' carved into the center of the slate. The design looks somewhat familiar, but you're not quite sure what it means..."
+The strange design is scenery that is a part of the strange slate. The description of the strange design is "It looks like a '∞' carved into the center of the slate. The design looks somewhat familiar, but you're not quite sure what it means..."
 
 The large crate is an open container in the Storage. "[if the ominous hole is open][The crate] that used to be in the corner is now against the south wall[else]There appears to be [a crate] in the corner[end if]."
 
 Carry out examining the crate:
-	say "The crate appears to be decaying, but it is in a much better state than the door. Whatever was inside the crate was likely stolen, as there is only some white fluff that appears to be packing material";
-	if the number of not scenery things contained by the crate is one:
-		say " and [list of not scenery things contained by the crate]";
-	else if the number of not scenery things contained by the crate is greater than one:
-		say " and some items you put inside: [list of not scenery things contained by the crate]";
-	say " inside." instead;
+	say "The crate appears to be decaying, but it is in a much better state than the door. Whatever was inside the crate was likely stolen, as there is only some white fluff that appears to be packing material inside";
+	if the number of things contained by the crate is greater than one:
+		say " (besides the [list of not scenery things contained by the crate] that you put in)";
+	say "." instead;
 
 Check closing the crate:
 	say "You don't see the lid of the crate anywhere." instead;
 
 The white fluff is scenery inside the crate. "All of the fluff in the crate seems to be interconnected. You haven't seen anything like this material before." The take objection of the fluff is "It seems to be connected to the inside of the crate. When you pull on the fluff you almost feel as if someone trying to pull it the opposite direction as you."
 
-Understand "packing", "material", and "packing material" as fluff.
+Understand "packing" and "material" as fluff.
 
 Section 5 - The Dark Prison Cell
 
@@ -898,9 +899,11 @@ Check examining the west wall when the location is the Dark Cell:
 
 The sturdy cell bars is east of the Hall and west of the Dark Cell. The sturdy bars is a locked door. The rusty key unlocks the sturdy bars. The printed name of the sturdy bars is "set of sturdy cell bars". The description of the sturdy bars is "[if the location is Hall]Like most of the cell's bars, they seem oddly sturdy even though they are rusty. [end if]There seems to be a section that can open like a door[if locked], but it appears to be locked[end if]. The bars are on the [if the location is Hall]east side of the hallway. The cell beyond the bars is very dimly lit[else]west side of the room[end if]."
 
+Understand "bar" as the sturdy bars.
+
 The moldy rucksack is a wearable player's holdall in the Dark Cell. "You can barely make out a moldy rucksack on the floor in the darkness." The description of the rucksack is "Surprisingly, it is still intact despite it looking quite old and frankly somewhat dilapidated. When you look inside the rucksack, your head starts aching as your brain tries to comprehend the inconceivably large space inside."
 
-Understand "sack", "ruck sack", "moldy sack", and "moldy ruck sack" as the rucksack.
+Understand "sack", "pack", "backpack", "back pack", and "ruck sack" as the rucksack.
 
 The crushed bottle is a small fluid receptacle in the rucksack. The description of the bottle is "It is made out of a strange material that is white but somewhat see-through. It appears to be very crushed and has a small opening [if the shaker cap is a part of the bottle]that is now covered by [the shaker cap][else]where it seems like a cap used to be[end if]."
 
@@ -1042,14 +1045,14 @@ Check examining the east wall when the location is the Kitchen:
 
 The windowed double doors are west of the Crumbling Hallway and east of the Kitchen. The double doors are a closed door. The indefinite article of the double doors is "the". The description of the double doors is "They appear to be made out of a strange shiny material that only has a few cracks in it. The [if open]open[else]closed[end if] doors [if the location is Crumbling Hallway]seem to lead to a room with many rats in it[else]lead back to the crumbling hallway[end if]."
 
-Understand "door", "windowed door", "double door", and "windowed double door" as the double doors.
+Understand "door" as the double doors.
 
 Report going to the Kitchen for the first time:
 	say "You walk down the hallway into the kitchen. You see some gray rats flee out of the corner of your eye.";
 
 The rat poops are small scenery in the Kitchen. "The spindle-shaped [poops] are littered all over the floor." The printed name of the poops is "rat droppings".
 
-Understand "poop", "rat poop", "droppings", and "rat droppings" as the poops.
+Understand "poop" and "droppings" as the poops.
 
 Check eating the poops:
 	say "Eat [the poops]? No, you're not that crazy." instead.
@@ -1059,7 +1062,7 @@ Instead of taking, touching, pulling, pushing, squeezing, or rubbing the poops:
 
 The counter is in the Kitchen. "You can see a counter that seems to extend out from the west wall." The description of the counter is "It seems to be made out of a fairly sturdy material, yet there are still gnawing marks on it."
 
-Understand "countertop" as the counter.
+Understand "countertop" and "counter top" as the counter.
 
 The broken salt shaker is a small thing on the counter. The description of the salt shaker is "The side has a hole in it and all of the contents are missing."
 
@@ -1099,7 +1102,7 @@ Check throwing the salt shaker at something:
 
 The bite marks are scenery in the Kitchen. "Everything around you is riddled with bite marks. It looks like the rats have done quite a number on this room."
 
-Understand "bite/gnaw/biting/gnawing marks/mark/--" and "mark" as the bite marks.
+Understand "gnaw/biting/gnawing" and "mark" as the bite marks.
 
 The icebox is in the Kitchen. "You can see an icebox in the southwest corner of the room." The description of the icebox is "A white icebox that has a top drawer for containing ice ([if the top drawer is open]in which is [list of things contained by the top drawer][else if the top drawer is locked]locked[else]closed[end if]) and a bottom compartment for storing food ([if the bottom compartment is open]in which is [list of things contained by the bottom compartment][else]closed[end if]). It has bite marks all over it.[if the top drawer is open or the bottom compartment is open] Just standing near makes you feel cold.[end if]"
 
@@ -1181,7 +1184,10 @@ Check examining the ceiling when the location is the Basement:
 
 The ominous hole is down from the Storage Room and up from the Basement. The hole is a closed not openable door. The hole is privately-named. "[if the location is Storage Room]There seems to be [a hole] in the corner where the crate used to be.[end if]". The description of the hole is "A hole in the floor of [the Storage Room]. It looks rather ominous."
 
-Understand "hole", "ominous", and "ominous hole" as the hole when the hole is open.
+Understand "ominous" and "hole" as the hole when the hole is open.
+
+Rule for deciding whether all includes the hole when the hole is closed:
+	it does not;
 
 Rule for printing the locale description when the hole is closed:
 	now the hole is mentioned;
